@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PokeApiNet.Models
 {
@@ -33,6 +34,22 @@ namespace PokeApiNet.Models
         /// The name of this resource listed in different languages.
         /// </summary>
         public List<Names> Names { get; set; }
+
+        /// <summary>
+        /// Returns the name of this API resource in the given locale.
+        /// </summary>
+        public virtual string GetName(string locale)
+        {
+            return Names?.FirstOrDefault(n => n.Language.Name == locale)?.Name;
+        }
+
+        /// <summary>
+        /// Returns the English name of this API resource.
+        /// </summary>
+        public string GetEnglishName()
+        {
+            return GetName("en");
+        }
     }
 
     /// <summary>

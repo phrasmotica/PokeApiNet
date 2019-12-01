@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PokeApiNet.Models
 {
@@ -529,6 +530,26 @@ namespace PokeApiNet.Models
         /// A list of details showing types this Pokémon has.
         /// </summary>
         public List<PokemonType> Types { get; set; }
+
+        /// <summary>
+        /// Returns the name of this Pokemon resource in the given locale.
+        /// </summary>
+        public new async Task<string> GetName(string locale)
+        {
+            using (var client = new PokeApiClient())
+            {
+                var species = await client.GetResourceAsync(Species);
+                return species.GetName(locale);
+            }
+        }
+
+        /// <summary>
+        /// Returns the English name of this Pokemon resource.
+        /// </summary>
+        public new async Task<string> GetEnglishName()
+        {
+            return await GetName("en");
+        }
     }
 
     public class PokemonAbility
