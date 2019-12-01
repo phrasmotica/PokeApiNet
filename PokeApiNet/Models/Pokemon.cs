@@ -1328,6 +1328,12 @@ namespace PokeApiNet.Models
         public TypeRelations DamageRelations { get; set; }
 
         /// <summary>
+        /// List of type relations from previous generations.
+        /// </summary>
+        [JsonProperty("past_damage_relations")]
+        public List<TypePastRelations> PastDamageRelations { get; set; }
+
+        /// <summary>
         /// A list of game indices relevent to this item by generation.
         /// </summary>
         [JsonProperty("game_indices")]
