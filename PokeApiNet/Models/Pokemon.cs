@@ -1411,4 +1411,20 @@ namespace PokeApiNet.Models
         [JsonProperty("double_damage_from")]
         public List<NamedApiResource<Type>> DoubleDamageFrom { get; set; }
     }
+
+    /// <summary>
+    /// Class for storing a Pokemon's type data in a previous generation.
+    /// </summary>
+    public class TypePastRelations : PastGenerationData<TypeRelations>
+    {
+        /// <summary>
+        /// The previous list of damage relations.
+        /// </summary>
+        [JsonProperty("damage_relations")]
+        public TypeRelations DamageRelations
+        {
+            get => Data;
+            set { Data = value; }
+        }
+    }
 }
