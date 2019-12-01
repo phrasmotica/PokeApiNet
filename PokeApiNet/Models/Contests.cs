@@ -35,22 +35,12 @@ namespace PokeApiNet.Models
         public List<ContestName> Names { get; set; }
     }
 
-    public class ContestName
+    public class ContestName : Names
     {
-        /// <summary>
-        /// The name for this contest.
-        /// </summary>
-        public string Name { get; set; }
-
         /// <summary>
         /// The color associated with this contest's name.
         /// </summary>
         public string Color { get; set; }
-
-        /// <summary>
-        /// The language that this name is in.
-        /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
     }
 
     /// <summary>
