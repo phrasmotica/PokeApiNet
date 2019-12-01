@@ -208,11 +208,6 @@ namespace PokeApiNet.Models
         public override string Name { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A list of pokemon species that result from this evolution
         /// trigger.
         /// </summary>

@@ -1,4 +1,6 @@
-﻿namespace PokeApiNet.Models
+﻿using System.Collections.Generic;
+
+namespace PokeApiNet.Models
 {
     /// <summary>
     /// The base class for classes that have an API endpoint. These
@@ -26,6 +28,11 @@
         /// The name of this resource
         /// </summary>
         public abstract string Name { get; set; }
+
+        /// <summary>
+        /// The name of this resource listed in different languages.
+        /// </summary>
+        public List<Names> Names { get; set; }
     }
 
     /// <summary>

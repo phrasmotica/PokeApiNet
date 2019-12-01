@@ -112,11 +112,6 @@ namespace PokeApiNet.Models
         public MoveMetaData Meta { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A list of move resource value changes across version groups
         /// of the game.
         /// </summary>
@@ -355,11 +350,6 @@ namespace PokeApiNet.Models
         /// A list of moves that cause this ailment.
         /// </summary>
         public List<NamedApiResource<Move>> Moves { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     /// <summary>
@@ -378,11 +368,6 @@ namespace PokeApiNet.Models
         /// The name for this resource.
         /// </summary>
         public override string Name { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     /// <summary>
@@ -439,11 +424,6 @@ namespace PokeApiNet.Models
         /// The description of this resource listed in different languages.
         /// </summary>
         public List<Descriptions> Descriptions { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     /// <summary>
@@ -467,11 +447,6 @@ namespace PokeApiNet.Models
         /// The description of this resource listed in different languages.
         /// </summary>
         public List<Descriptions> Descriptions { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// A list of version groups where moves can be learned through this method.
@@ -507,10 +482,5 @@ namespace PokeApiNet.Models
         /// A list of moves that that are directed at this target.
         /// </summary>
         public List<NamedApiResource<Move>> Moves { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 }

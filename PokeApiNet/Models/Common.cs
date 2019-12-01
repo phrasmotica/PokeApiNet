@@ -36,11 +36,6 @@ namespace PokeApiNet.Models
         /// unique.
         /// </summary>
         public string Iso3166 { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     public class ApiResource<T> : UrlNavigation<T> where T : ResourceBase { }

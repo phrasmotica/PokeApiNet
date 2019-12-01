@@ -32,7 +32,7 @@ namespace PokeApiNet.Models
         /// The name of this contest type listed in different
         /// languages.
         /// </summary>
-        public List<ContestName> Names { get; set; }
+        public new List<ContestName> Names { get; set; }
     }
 
     public class ContestName : Names

@@ -27,11 +27,6 @@ namespace PokeApiNet.Models
         public NamedApiResource<Region> Region { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A list of game indices relevent to this location by generation.
         /// </summary>
         [JsonProperty("game_indices")]
@@ -79,11 +74,6 @@ namespace PokeApiNet.Models
         /// The region this location can be found in.
         /// </summary>
         public NamedApiResource<Location> Location { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// A list of Pokémon that can be encountered in this area along with
@@ -156,11 +146,6 @@ namespace PokeApiNet.Models
         public override string Name { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A list of Pokémon encountered in thi pal park area along with
         /// details.
         /// </summary>
@@ -212,11 +197,6 @@ namespace PokeApiNet.Models
         /// The name for this resource.
         /// </summary>
         public override string Name { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// The generation this region was introduced in.

@@ -29,11 +29,6 @@ namespace PokeApiNet.Models
         public List<NamedApiResource<Ability>> Abilities { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// The main region travelled in this generation.
         /// </summary>
         [JsonProperty("main_region")]
@@ -96,11 +91,6 @@ namespace PokeApiNet.Models
         public List<Descriptions> Descriptions { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A list of Pokémon catalogued in this Pokédex and their indexes.
         /// </summary>
         [JsonProperty("pokemon_entries")]
@@ -149,11 +139,6 @@ namespace PokeApiNet.Models
         /// The name for this resource.
         /// </summary>
         public override string Name { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// The version group this version belongs to.

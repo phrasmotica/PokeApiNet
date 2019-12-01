@@ -69,11 +69,6 @@ namespace PokeApiNet.Models
         public List<GenerationGameIndex> GameIndices { get; set; }
 
         /// <summary>
-        /// The name of this item listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A set of sprites used to depict this item in the game.
         /// </summary>
         public ItemSprites Sprites { get; set; }
@@ -156,11 +151,6 @@ namespace PokeApiNet.Models
         public List<NamedApiResource<Item>> Items { get; set; }
 
         /// <summary>
-        /// The name of this item attribute listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// The description of this item attribute listed in different languages.
         /// </summary>
         public List<Descriptions> Descriptions { get; set; }
@@ -187,11 +177,6 @@ namespace PokeApiNet.Models
         /// A list of items that are a part of this category.
         /// </summary>
         public List<NamedApiResource<Item>> Items { get; set; }
-
-        /// <summary>
-        /// The name of this item category listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// The pocket items in this category would be put in.
@@ -249,10 +234,5 @@ namespace PokeApiNet.Models
         /// A list of item categories that are relevant to this item pocket.
         /// </summary>
         public List<NamedApiResource<ItemCategory>> Categories { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 }

@@ -34,11 +34,6 @@ namespace PokeApiNet.Models
         public NamedApiResource<Generation> Generation { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// The effect of this ability listed in different languages.
         /// </summary>
         [JsonProperty("effect_entries")]
@@ -174,11 +169,6 @@ namespace PokeApiNet.Models
         /// The name for this resource.
         /// </summary>
         public override string Name { get; set; }
-
-        /// <summary>
-        ///	The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// A list of all Pokémon species that are members of this egg group.
@@ -344,11 +334,6 @@ namespace PokeApiNet.Models
         /// </summary>
         [JsonProperty("move_battle_style_preferences")]
         public List<MoveBattleStylePreference> MoveBattleStylePreferences { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     public class NatureStatChange
@@ -405,11 +390,6 @@ namespace PokeApiNet.Models
         /// The name for this resource.
         /// </summary>
         public override string Name { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// A detail of natures which affect this Pokéathlon stat positively
@@ -752,11 +732,6 @@ namespace PokeApiNet.Models
         public override string Name { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A list of the Pokémon species that have this color.
         /// </summary>
         [JsonProperty("pokemon_species")]
@@ -837,12 +812,6 @@ namespace PokeApiNet.Models
         public NamedApiResource<VersionGroup> VersionGroup { get; set; }
 
         /// <summary>
-        /// The form specific full name of this Pokémon form, or empty if
-        /// the form does not have a specific name.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// The form specific form name of this Pokémon form, or empty if the
         /// form does not have a specific name.
         /// </summary>
@@ -896,11 +865,6 @@ namespace PokeApiNet.Models
         public override string Name { get; set; }
 
         /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
-
-        /// <summary>
         /// A list of the Pokémon species that can be found in this habitat.
         /// </summary>
         [JsonProperty("pokemon_species")]
@@ -930,11 +894,6 @@ namespace PokeApiNet.Models
         /// </summary>
         [JsonProperty("awesome_names")]
         public List<AwesomeNames> AwesomeNames { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// A list of the Pokémon species that have this shape.
@@ -1083,11 +1042,6 @@ namespace PokeApiNet.Models
         /// The generation this Pokémon species was introduced in.
         /// </summary>
         public NamedApiResource<Generation> Generation { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// A list of encounters that can be had with this Pokémon species in
@@ -1255,11 +1209,6 @@ namespace PokeApiNet.Models
         /// </summary>
         [JsonProperty("move_damage_class")]
         public NamedApiResource<MoveDamageClass> MoveDamageClass { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     public class MoveStatAffectSets
@@ -1343,11 +1292,6 @@ namespace PokeApiNet.Models
         /// </summary>
         [JsonProperty("move_damage_class")]
         public NamedApiResource<MoveDamageClass> MoveDamageClass { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
 
         /// <summary>
         /// A list of details of Pokémon that have this type.

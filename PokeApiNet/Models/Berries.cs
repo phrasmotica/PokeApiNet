@@ -124,12 +124,6 @@ namespace PokeApiNet.Models
         /// A list of berries with this firmness.
         /// </summary>
         public List<NamedApiResource<Berry>> Berries { get; set; }
-
-        /// <summary>
-        /// The name of this resource listed in different
-        /// languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     /// <summary>
@@ -161,11 +155,6 @@ namespace PokeApiNet.Models
         /// </summary>
         [JsonProperty("contest_type")]
         public NamedApiResource<ContestType> ContestType { get; set; }
-
-        /// <summary>
-        /// The name of this resource in different languages.
-        /// </summary>
-        public List<Names> Names { get; set; }
     }
 
     public class FlavorBerryMap
