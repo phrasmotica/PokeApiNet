@@ -558,6 +558,12 @@ namespace PokeApiNet
         public List<PokemonMove> Moves { get; set; }
 
         /// <summary>
+        /// Type data in previous generations for this Pokemon.
+        /// </summary>
+        [JsonProperty("past_types")]
+        public List<PokemonPastTypes> PastTypes { get; set; }
+
+        /// <summary>
         /// A set of sprites used to depict this Pokémon in the game.
         /// </summary>
         public PokemonSprites Sprites { get; set; }
@@ -614,6 +620,21 @@ namespace PokeApiNet
         /// The type the referenced Pokémon has.
         /// </summary>
         public NamedApiResource<Type> Type { get; set; }
+    }
+
+    /// <summary>
+    /// Class for storing a Pokemon's type data in a previous generation.
+    /// </summary>
+    public class PokemonPastTypes : PastGenerationData<List<PokemonType>>
+    {
+        /// <summary>
+        /// The previous list of types.
+        /// </summary>
+        public List<PokemonType> Types
+        {
+            get => Data;
+            set { Data = value; }
+        }
     }
 
     /// <summary>
