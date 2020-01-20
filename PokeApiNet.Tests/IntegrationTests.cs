@@ -1453,5 +1453,86 @@ namespace PokeApiNet.Tests
                 Assert.Empty(pastTypes);
             }
         }
+
+        /// <summary>
+        /// Verifies that types with past damage relations data have theirs fetched correctly.
+        /// </summary>
+        [Theory]
+        [InlineData(4, 7, 200, 1)]
+        [InlineData(7, 4, 200, 1)]
+        [InlineData(8, 14, 0, 1)]
+        [InlineData(15, 10, 100, 1)]
+        [InlineData(8, 9, 50, 5)]
+        [InlineData(17, 9, 50, 5)]
+        public async Task GetPastDamageRelationsTest(int damageTypeId, int targetTypeId, int damageFactor, int generationId)
+        {
+            // assemble
+            using (var client = new PokeApiClient())
+            {
+                // act
+                var damageType = await client.GetResourceAsync<Type>(damageTypeId);
+                var targetType = await client.GetResourceAsync<Type>(targetTypeId);
+
+                // assert
+                var damagePastDamageRelations = damageType.PastDamageRelations;
+                Assert.NotEmpty(damagePastDamageRelations);
+
+                var targetPastDamageRelations = targetType.PastDamageRelations;
+                Assert.NotEmpty(targetPastDamageRelations);
+
+                // verify both types have past damage relations data for the given generation
+                var generations = await client.GetResourceAsync(damagePastDamageRelations.Select(p => p.Generation));
+                var generationObj = generations.SingleOrDefault(g => g.Id == generationId);
+                Assert.NotNull(generationObj);
+
+                // verify that damage type has the appropriate data against the target type
+                var damageTypeRelations = damagePastDamageRelations.Single(r => r.Generation.Name == generationObj.Name)
+                                                                   .DamageRelations;
+
+                if (damageFactor == 200)
+                {
+                    Assert.Contains(damageTypeRelations.DoubleDamageTo, r => r.Name == targetType.Name);
+                }
+                else if (damageFactor == 50)
+                {
+                    Assert.Contains(damageTypeRelations.HalfDamageTo, r => r.Name == targetType.Name);
+                }
+                else if (damageFactor == 0)
+                {
+                    Assert.Contains(damageTypeRelations.NoDamageTo, r => r.Name == targetType.Name);
+                }
+                else if (damageFactor == 100)
+                {
+                    // verifies neutral damage factors are not represented
+                    Assert.DoesNotContain(damageTypeRelations.DoubleDamageTo, r => r.Name == targetType.Name);
+                    Assert.DoesNotContain(damageTypeRelations.HalfDamageTo, r => r.Name == targetType.Name);
+                    Assert.DoesNotContain(damageTypeRelations.NoDamageTo, r => r.Name == targetType.Name);
+                }
+
+                // verify that target type has the appropriate data from the damage type
+                var targetTypeRelations = targetPastDamageRelations.Single(r => r.Generation.Name == generationObj.Name)
+                                                                   .DamageRelations;
+
+                if (damageFactor == 200)
+                {
+                    Assert.Contains(targetTypeRelations.DoubleDamageFrom, r => r.Name == damageType.Name);
+                }
+                else if (damageFactor == 50)
+                {
+                    Assert.Contains(targetTypeRelations.HalfDamageFrom, r => r.Name == damageType.Name);
+                }
+                else if (damageFactor == 0)
+                {
+                    Assert.Contains(targetTypeRelations.NoDamageFrom, r => r.Name == damageType.Name);
+                }
+                else if (damageFactor == 100)
+                {
+                    // verifies neutral damage factors are not represented
+                    Assert.DoesNotContain(targetTypeRelations.DoubleDamageFrom, r => r.Name == damageType.Name);
+                    Assert.DoesNotContain(targetTypeRelations.HalfDamageFrom, r => r.Name == damageType.Name);
+                    Assert.DoesNotContain(targetTypeRelations.NoDamageFrom, r => r.Name == damageType.Name);
+                }
+            }
+        }
     } 
 }
