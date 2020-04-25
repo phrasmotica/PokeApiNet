@@ -923,6 +923,11 @@ namespace PokeApiNet
         /// </summary>
         [JsonProperty("form_names")]
         public List<Names> FormNames { get; set; }
+
+        /// <summary>
+        /// A list of details showing types this Pokémon form has.
+        /// </summary>
+        public List<PokemonType> Types { get; set; }
     }
 
     /// <summary>
