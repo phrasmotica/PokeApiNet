@@ -20,8 +20,8 @@ namespace PokeApiNet
         /// The default `User-Agent` header value used by instances of <see cref="PokeApiClient"/>.
         /// </summary>
         public static readonly ProductHeaderValue DefaultUserAgent = GetDefaultUserAgent();
+        private static readonly Uri _baseUri = new Uri("https://pokeapi.co/api/v2/");
         private readonly HttpClient _client;
-        private readonly Uri _baseUri = new Uri("https://pokeapi.co/api/v2/");
         private readonly ResourceCacheManager _resourceCache = new ResourceCacheManager();
         private readonly ResourceListCacheManager _resourceListCache = new ResourceListCacheManager();
 
@@ -29,23 +29,33 @@ namespace PokeApiNet
         /// Default constructor
         /// </summary>
         public PokeApiClient()
-            : this(DefaultUserAgent)
+            : this(_baseUri)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PokeApiClient"/> with 
-        /// a given value for the `User-Agent` header
+        /// Initializes a new instance of the <see cref="PokeApiClient"/> with a given base URI.
+        /// </summary>
+        /// <param name="baseUri">The base URI of the PokeAPI service.</param>
+        public PokeApiClient(Uri baseUri)
+            : this(DefaultUserAgent, baseUri)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokeApiClient"/> with a given value for the
+        /// `User-Agent` header and a given base URI.
         /// </summary>
         /// <param name="userAgent">The value for the default `User-Agent` header.</param>
-        public PokeApiClient(ProductHeaderValue userAgent)
+        /// <param name="baseUri">The base URI of the PokeAPI service.</param>
+        public PokeApiClient(ProductHeaderValue userAgent, Uri baseUri)
         {
             if (userAgent == null)
             {
                 throw new ArgumentNullException(nameof(userAgent));
             }
 
-            _client = new HttpClient() { BaseAddress = _baseUri };
+            _client = new HttpClient() { BaseAddress = baseUri };
             _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(userAgent));
         }
 
